@@ -20,7 +20,7 @@ export default function Iot() {
         </Features>
       </TextSection>
       <ImageSection>
-        <Image src="/images/feelink/iotsimple.jpg" alt="IoT Business" />
+        <Image src="/images/feelink/Iotsimple.jpg" alt="IoT Business" />
       </ImageSection>
     </Container>
     </>
