@@ -94,7 +94,7 @@ export default function Home() {
         // 스크롤이 마지막 섹션에 도달하면 첫 섹션으로 돌아가게 함
         window.scrollTo({ left: 0, behavior: 'smooth' });
       }
-    }, 3000); // 3초마다 자동 스크롤
+    }, 5000); // 3초마다 자동 스크롤
   };
 
   const stopAutoScroll = () => {

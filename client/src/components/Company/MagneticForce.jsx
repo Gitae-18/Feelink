@@ -75,7 +75,7 @@ export default function MagneticForce() {
         </FeatureItem>
 
         <FeatureItem>
-            <Icon>📊</Icon>
+            <Icon>🔍</Icon>
             <FeatureTitle>Monitor Operation Status</FeatureTitle>
             <FeatureDescription>
                 <li>Processing / Non-Processing</li>
@@ -83,7 +83,7 @@ export default function MagneticForce() {
         </FeatureItem>
 
         <FeatureItem>
-            <Icon>📈</Icon>
+            <Icon>🔗</Icon>
             <FeatureTitle>Interworking Parent Systems</FeatureTitle>
             <FeatureDescription>
                 <li>Integration with upper PLC systems</li>
@@ -120,7 +120,7 @@ const Section = styled.div`
   position: relative;
   &.top-section, &.middle-section {
     margin-bottom:100px;
-    margin-left:10%;
+    margin-left:5%;
   }
 `;
 
@@ -210,7 +210,7 @@ const TextContainer = styled.div`
     line-height:2;
     padding: 0;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     li {
       margin-bottom: 10px;
       word-wrap: break-word; /* 단어를 적절하게 줄바꿈 */

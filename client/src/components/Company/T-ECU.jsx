@@ -25,11 +25,11 @@ export default function TECU() {
         </ImageContainer>
         <TextContainer className='top-text'>
           <ul>
-            <li>지게차 트랜스미션 전용 전자제어장치(ECU)</li>
-            <li>No-Torque Converter 방식 내장</li>
-            <li>에너지 절감율 33% 이상</li>
-            <li>배터리 운용시간 2배 증가</li>
-            <li>자가진단 및 예방 기능</li>
+            <li>Electronic Control Unit Dedicated To Forklift Transmission(ECU)</li>
+            <li>Built-in No-Torque Converter method</li>
+            <li>Energy-Savings More Than 33%</li>
+            <li>Battery Operating-Time Doubled</li>
+            <li>Self-Diagnosis & Prevention Function</li>
           </ul>
         </TextContainer>
       </Section>
@@ -49,11 +49,10 @@ export default function TECU() {
         </ImageContainer>        
         <TextContainer className='mid-text'>
           <ul>
-            <li>지게차 트랜스미션 전용 전자제어장치(ECU)</li>
-            <li>No-Torque Converter 방식 내장</li>
-            <li>에너지 절감율 33% 이상</li>
-            <li>배터리 운용시간 2배 증가</li>
-            <li>자가진단 및 예방 기능</li>
+            <li>December 2022 <br/>Fourth Generation Engine Forklift TECU Development&Supply</li>
+            <li>August 2023 <br/> TECU Exclusive-Cluster Standard Device Development&Supply</li>
+            <li>November2023 <br/>TECU Exclusive-Cluster Advanced Device Development&Supply</li>
+            <li>December2023 <br/>Fifth Generation Electric Forklift TECU Under Development</li>            
           </ul>
         </TextContainer>
       </Section>
@@ -130,14 +129,14 @@ const Container = styled.div`
 
 const Section = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
   //height: 50vh;
   width: 100%;
   position: relative;
   &.top-section, &.middle-section {
     margin-bottom:100px;
-    margin-left:10%;
+    margin-left:5%;
   }
 `;
 
@@ -228,9 +227,11 @@ const TextContainer = styled.div`
     line-height:2;
     padding: 0;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     li {
       margin-bottom: 10px;
+      word-wrap: break-word; /* 단어를 적절하게 줄바꿈 */
+      word-break: break-all; /* 길이가 길면 강제로 줄바꿈 */      
     }
   }
 `;

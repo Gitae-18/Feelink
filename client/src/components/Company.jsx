@@ -7,7 +7,7 @@ import MagneticForce from "./Company/MagneticForce";
 import Vibration from "./Company/Vibration";
 import OLED from "./Company/Oled";
 import Location from "./Company/Location";
-
+import MLTD from "./Company/MLTD";
 export default function Company() {
     const [activeMenu, setActiveMenu] = useState(null);
     const [activeTab, setActiveTab] = useState(null); // activeTab 상태 추가
@@ -110,9 +110,10 @@ export default function Company() {
                     {activeTab === 'T-ECU' && <TECU />}
                     {activeTab === 'E-Call & DSM' && <ECALL />}
                     {activeTab === 'Magnetic Force Measurement Device' && <MagneticForce />}
+                    {activeTab === 'Magnetic Load Transfer Device' && <MLTD />}
                     {activeTab === 'Wireless Vibration Data Measurement System' && <Vibration />}
                     {activeTab === 'OLED Process Data' && <OLED />}
-                    {activeTab === 'Location' && <Location />}
+                    {activeTab === 'Location' && <Location address='서울특별시 구로구 공원로3'/>}
                 </TabContent>
             </MainContent>
         </Container>

@@ -62,7 +62,7 @@ export default function ECALL() {
       <BottomSection className='bottom-section'>
       <FeaturesContainer>
         <FeatureItem>
-            <Icon>🔧</Icon>
+            <Icon>📝</Icon>
             <FeatureTitle>Integrated Demonstration Test Completed</FeatureTitle>
             <FeatureDescription>
             <li>Completed transportation safety authority demonstration test</li>
@@ -71,7 +71,7 @@ export default function ECALL() {
         </FeatureItem>
 
         <FeatureItem>
-            <Icon>📡</Icon>
+            <Icon>🛠</Icon>
             <FeatureTitle>LTE-Based System</FeatureTitle>
             <FeatureDescription>
             <li>Overseas E-Call device / 3G-based</li>
@@ -88,7 +88,7 @@ export default function ECALL() {
         </FeatureItem>
 
         <FeatureItem>
-            <Icon>📈</Icon>
+            <Icon>📜</Icon>
             <FeatureTitle>Mandatory Installation</FeatureTitle>
             <FeatureDescription>
             <li>Mandatory legislation in Europe and Russia</li>
@@ -201,7 +201,7 @@ const TextContainer = styled.div`
     line-height:2;
     padding: 0;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     li {
       margin-bottom: 10px;
     }
