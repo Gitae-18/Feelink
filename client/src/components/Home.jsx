@@ -218,10 +218,22 @@ const ArrowButtonRight = styled.button`
     background-color: #444;
   }
 
+  /* 태블릿 크기 */
+  @media (max-width: 1024px) {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  /* 모바일 크기 */
   @media (max-width: 768px) {
     width: 35px;
     height: 35px;
-    font-size: 20px; /* 모바일 화면에서 버튼 크기 조정 */
+    font-size: 18px;
+    bottom: 10px;
+    right: 10px;
   }
 `;
 
@@ -229,6 +241,16 @@ const ArrowButtonRight = styled.button`
 const ArrowButtonLeft = styled(ArrowButtonRight)`
   right: auto;
   left: 20px;
+
+  /* 태블릿 크기 */
+  @media (max-width: 1024px) {
+    left: 15px;
+  }
+
+  /* 모바일 크기 */
+  @media (max-width: 768px) {
+    left: 10px;
+  }
 `;
 
 const AutoScrollButton = styled.button`
@@ -259,10 +281,21 @@ const AutoScrollButton = styled.button`
       padding-left: 10px;
     `}
 
+  /* 태블릿 크기 */
+  @media (max-width: 1024px) {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    bottom: 15px;
+    right: ${(props) => (props.isAtFooter ? '15px' : '65px')};
+  }
+
+  /* 모바일 크기 */
   @media (max-width: 768px) {
     width: 35px;
     height: 35px;
-    font-size: 16px; /* 모바일에서 버튼 크기 조정 */
-    right: ${(props) => (props.isAtFooter ? '10px' : '60px')}; /* 모바일 위치 조정 */
+    font-size: 16px;
+    bottom: 10px;
+    right: ${(props) => (props.isAtFooter ? '10px' : '50px')};
   }
 `;
