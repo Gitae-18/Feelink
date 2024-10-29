@@ -59,8 +59,7 @@ export default function Logo () {
     return(
         <>
         <ButtonGroup/>        
-        <Container>           
-       
+        <Container>                  
         <TextSection>
         <Headline>
           Unleash Your Creativity with 
@@ -74,17 +73,21 @@ export default function Logo () {
         <SubText>
             {typedText}
         </SubText>
-        <Stats>
+        <Description>
+            어제와 다른 오늘,  그리고 한걸음 한걸음 
+            발전하고 성장하는 필링크코리아의 내일을 만들어 가겠습니다.
+        </Description>
+        {/* <Stats>
           <StatItem>Data Inquiry/Analysis</StatItem>
           <SeperateLine/>
           <StatItem>Real-time monitoring</StatItem>
           <SeperateLine/>
           <StatItem>Self-diagnosis System</StatItem>
-        </Stats>
+        </Stats> */}
         </TextSection>
-      <ImageSection>
-        <Image src="/images/feelink/emotional.png" alt="Emotional Logo" />
-      </ImageSection>
+        <ImageSection>
+          <Image src="/images/feelink/emotional.png" alt="Emotional Logo" />
+        </ImageSection>
         </Container> 
         </>    
     )
@@ -100,6 +103,7 @@ const Container = styled.div`
     gap: 1em; /* 큰 화면일 때 간격을 줄임 */
     padding: 0 2vw; /* 좌우 패딩을 더 늘려 중앙으로 배치 */
   }
+    margin:0;
 `;
 const SeperateLine = styled.div`
  border-right:3px solid #BFBFBF;
@@ -109,6 +113,12 @@ const SeperateLine = styled.div`
 const Text3DWrapper = styled.div`
   position: relative; /* Company를 절대 위치로 배치하기 위한 relative 설정 */
   display: inline-block;
+`;
+const Description = styled.p`
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 2em;
+  line-height: 1.5;
 `;
 const Text3D = styled.div`
   font-size: 160px;
@@ -172,8 +182,8 @@ const Company = styled.span`
 const SubText = styled.p`
   font-size: 1.9em;
   color: #555;
-  margin-bottom: 2em;
-  min-height: 1.5em; /* 적절한 높이를 설정 */
+  margin-bottom: 1.5em;
+  min-height: 1.3em; /* 적절한 높이를 설정 */
   font-weight:600;
 `;
 

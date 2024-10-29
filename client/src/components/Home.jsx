@@ -4,10 +4,16 @@ import Business from "./business";
 import Iot from "./Iot";
 import Footer from "./Footer";
 import styled from "styled-components";
+import Sensor from "./Sensor";
+import Industrial from "./Industrial";
+import Device from "./Device";
 export default function Home() {
   const [showIot, setShowIot] = useState(false);
   const [showBusiness, setShowBusiness] = useState(false);
   const [showFooter, setShowFooter] = useState(false);
+  const [showDevice, setShowDevice] = useState(false);
+  const [showIndustrial, setShowIndustrial] = useState(false);
+  const [showSensor, setShowSensor] = useState(false);
   const [isAutoScrollOn, setIsAutoScrollOn] = useState(true);
   const autoScrollRef = useRef(null);
   const scrollEndTimeout = useRef(null);
@@ -26,8 +32,18 @@ export default function Home() {
       } else {
         setShowBusiness(false);
       }
-
+   
       if (scrollX > window.innerWidth * 2.5) {
+        setShowIndustrial(true);
+      } else {
+        setShowIndustrial(false);
+      }
+      if (scrollX > window.innerWidth * 3.5) {
+        setShowSensor(true);
+      } else {
+        setShowSensor(false);
+      }
+      if (scrollX > window.innerWidth * 4.5) {
         setShowFooter(true);
       } else {
         setShowFooter(false);
@@ -110,19 +126,25 @@ export default function Home() {
   return (
     <>
       <Container>
-        <Section show={!showIot && !showBusiness && !showFooter}>
-          <Logo />
-        </Section>
-        <Section show={showIot && !showBusiness && !showFooter}>
-          <Iot />
-        </Section>
-        <Section show={showBusiness && !showFooter}>
-          <Business />
-        </Section>
-        <Section show={showFooter}>
-          <Footer />
-        </Section>
-       
+      <Section show={!showIot && !showBusiness && !showFooter && !showIndustrial && !showSensor}>
+        <Logo />
+      </Section>
+      <Section show={showIot && !showBusiness && !showFooter && !showIndustrial && !showSensor}>
+        <Iot />
+      </Section>
+      <Section show={showBusiness && !showFooter && !showIndustrial && !showSensor}>
+        <Device/>
+      </Section>
+      <Section show={showIndustrial && !showFooter && !showSensor}>
+        <Industrial />
+      </Section>
+      <Section show={showSensor && !showFooter}>
+        <Sensor />
+      </Section>
+      <Section show={showFooter}>
+        <Footer />
+      </Section>
+
         {showIot || showBusiness ? (
           <ArrowButtonLeft onClick={handlePrevScroll}>←</ArrowButtonLeft>
         ) : null}
@@ -147,10 +169,19 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
-  width: 400vw; /* 각 섹션을 100vw씩 3개 */
+  width: 700vw; /* 각 섹션이 화면에 맞게 100vw씩 구성 */
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth; /* 스크롤 부드럽게 */
+  scroll-behavior: smooth;
+
+  @media (max-width: 1024px) {
+    width: 500vw; /* 태블릿에 맞게 섹션 너비 조정 */
+  }
+
+  @media (max-width: 768px) {
+    width: 300vw; /* 모바일 화면에 맞게 섹션 너비 조정 */
+  }
 `;
 
 const Section = styled.div`
@@ -158,20 +189,25 @@ const Section = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw; /* 각 섹션이 화면에 꽉 차도록 설정 */
+  width: 100vw;
   opacity: ${(props) => (props.show ? 1 : 0)};
   transition: opacity 1s ease-in-out;
-  scroll-snap-align: start; /* 섹션의 시작 지점에 맞춰 스냅 */
+  scroll-snap-align: start;
+
+  @media (max-width: 768px) {
+    padding: 1em; /* 모바일에서 섹션의 여백 추가 */
+  }
 `;
+
 const ArrowButtonRight = styled.button`
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
-  background-color: #666; /* 버튼 색상 */
+  background-color: #666;
   color: white;
   font-size: 24px;
   cursor: pointer;
@@ -179,7 +215,13 @@ const ArrowButtonRight = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #444; /* 버튼 호버 색상 */
+    background-color: #444;
+  }
+
+  @media (max-width: 768px) {
+    width: 35px;
+    height: 35px;
+    font-size: 20px; /* 모바일 화면에서 버튼 크기 조정 */
   }
 `;
 
@@ -188,13 +230,14 @@ const ArrowButtonLeft = styled(ArrowButtonRight)`
   right: auto;
   left: 20px;
 `;
+
 const AutoScrollButton = styled.button`
   position: fixed;
-  right: ${(props) => (props.isAtFooter ? '20px' : '90px')}; /* Footer에 있을 때는 ArrowButton과 같은 위치 */
+  right: ${(props) => (props.isAtFooter ? '20px' : '80px')};
   bottom: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #666; /* 배경색 */
+  width: 45px;
+  height: 45px;
+  background-color: #666;
   color: white;
   font-size: 20px;
   border: none;
@@ -204,14 +247,22 @@ const AutoScrollButton = styled.button`
   align-items: center;
   cursor: pointer;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, right 0.3s; /* 위치 변경에 대한 애니메이션 추가 */
+  transition: background-color 0.3s, right 0.3s;
 
   &:hover {
-    background-color: #444; /* 호버 시 배경색 */
+    background-color: #444;
   }
+
   ${(props) =>
     !props.isAutoScrollOn &&
     `
-      padding-left: 10px; /* 왼쪽으로 아이콘을 약간 이동 */
+      padding-left: 10px;
     `}
+
+  @media (max-width: 768px) {
+    width: 35px;
+    height: 35px;
+    font-size: 16px; /* 모바일에서 버튼 크기 조정 */
+    right: ${(props) => (props.isAtFooter ? '10px' : '60px')}; /* 모바일 위치 조정 */
+  }
 `;

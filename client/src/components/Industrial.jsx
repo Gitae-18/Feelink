@@ -1,28 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { ButtonGroup } from "./ButtonGripStyles";
-export default function Iot() {
+export default function Industrial() {
   return (
     <>
     <ButtonGroup/>             
     <Container>
       <TextSection>
         <Title>FEELINK</Title>
-        <SubTitle>T-ECU for Special Vehicle </SubTitle>
-          {/* <Description>
-              어제와 다른 오늘,  그리고 한걸음 한걸음 
-              발전하고 성장하는 필링크코리아의 내일을 만들어 가겠습니다.
-          </Description> */}
+        <SubTitle>Industrial control system</SubTitle>        
         <Features>
-          <FeatureItem>4th Generation Forklift (T-ECU)</FeatureItem>
-          <FeatureItem>10.4-inch Luxury Forklifts Only
-          Cluster Devices</FeatureItem>
-          <FeatureItem>5.0-inch Entry-Level Forklifts Only
-          Cluster Devices</FeatureItem>
+          <FeatureItem>Entry-Level E-Call Device</FeatureItem>
+          <FeatureItem>Entry-Level DSM Device</FeatureItem>
+          <FeatureItem>JG Table Actuator Device</FeatureItem>
+          <FeatureItem>Ventilation Blower Unit</FeatureItem>
         </Features>
       </TextSection>
       <ImageSection>
-        <Image src="/images/feelink/green.jpg" alt="IoT Business" />
+        <Image src="/images/feelink/industry.jpg" alt="IoT Business" />
       </ImageSection>
     </Container>
     </>
@@ -65,7 +60,7 @@ const Features = styled.div`
   flex-direction: column;
   gap: 1.5em;
   font-size:1.2em;
-  width:40vw;
+  width:40vw;  
 `;
 
 const FeatureItem = styled.span`

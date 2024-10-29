@@ -14,7 +14,7 @@ export const ButtonGroup = () => {
     }
   return (
     <Group>
-      <LinkButton onClick={goCompany}>Learn more</LinkButton>
+      {/* <LinkButton onClick={goCompany}>Learn more</LinkButton> */}
       {/* <OutlineButton>Explore Course List</OutlineButton> */}
       <SolidButton onClick={goEmail}>Email</SolidButton>
     </Group>
@@ -31,7 +31,7 @@ const Group = styled.div`
   z-index: 10;
   @media (min-width: 1440px) {
     gap: 1em;
-    padding: 0 1vw;
+    padding: 0;
   }
 `;
 
