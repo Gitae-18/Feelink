@@ -7,55 +7,61 @@ import styled from "styled-components";
 import Sensor from "./Sensor";
 import Industrial from "./Industrial";
 import Device from "./Device";
+import MobileHome from "./MobileHome";
+import { isMobile as Mobile } from "react-device-detect";
 export default function Home() {
   const [showIot, setShowIot] = useState(false);
   const [showBusiness, setShowBusiness] = useState(false);
   const [showFooter, setShowFooter] = useState(false);
-  const [showDevice, setShowDevice] = useState(false);
+  const [showDevice, setShowDevice] = useState(false);  
   const [showIndustrial, setShowIndustrial] = useState(false);
   const [showSensor, setShowSensor] = useState(false);
-  const [isAutoScrollOn, setIsAutoScrollOn] = useState(true);
+  const [ isAutoScrollOn, setIsAutoScrollOn] = useState(true);
   const autoScrollRef = useRef(null);
   const scrollEndTimeout = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      const scrollX = window.scrollX;
+      const scrollX = window.scrollX; 
 
-      if (scrollX > window.innerWidth * 0.5) {
-        setShowIot(true);
-      } else {
-        setShowIot(false);
-      }
+    if (scrollX > window.innerWidth * 0.5) {
+      setShowIot(true);
+    } else {
+      setShowIot(false);
+    }
 
-      if (scrollX > window.innerWidth * 1.5) {
-        setShowBusiness(true);
-      } else {
-        setShowBusiness(false);
-      }
-   
-      if (scrollX > window.innerWidth * 2.5) {
-        setShowIndustrial(true);
-      } else {
-        setShowIndustrial(false);
-      }
-      if (scrollX > window.innerWidth * 3.5) {
-        setShowSensor(true);
-      } else {
-        setShowSensor(false);
-      }
-      if (scrollX > window.innerWidth * 4.5) {
-        setShowFooter(true);
-      } else {
-        setShowFooter(false);
-      }
-    };
+    if (scrollX > window.innerWidth * 1.5) {
+      setShowBusiness(true);
+    } else {
+      setShowBusiness(false);
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    if (scrollX > window.innerWidth * 2.5) {
+      setShowIndustrial(true);
+    } else {
+      setShowIndustrial(false);
+    }
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    if (scrollX > window.innerWidth * 3.5) {
+      setShowSensor(true);
+    } else {
+      setShowSensor(false);
+    }
+
+    if (scrollX > window.innerWidth * 4.5) {
+      setShowFooter(true);
+    } else {
+      setShowFooter(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollX = window.scrollX;
@@ -70,7 +76,7 @@ export default function Home() {
   
     
     
-    const handleDebouncedScroll = () => {
+  const handleDebouncedScroll = () => {
       if (scrollEndTimeout.current) {
         clearTimeout(scrollEndTimeout.current);
       }
@@ -123,6 +129,7 @@ export default function Home() {
   const toggleAutoScroll = () => {
     setIsAutoScrollOn((prev) => !prev);
   };
+  
   return (
     <>
       <Container>
@@ -158,10 +165,10 @@ export default function Home() {
         isAutoScrollOn={isAutoScrollOn} 
         isAtFooter={showFooter} // Footer 섹션에 있을 때 버튼 위치 조정
         >
-        {isAutoScrollOn ? <img src='/images/feelink/pause.jpg' style={{width:'10px'}} alt='no' /> : '▶️'}
+        {isAutoScrollOn ? <img src='/images/feelink/pause.jpg' style={{width:'10px'}} alt='no' /> : <img src='/images/feelink/play.png' style={{width:'20px'}} alt='no' />}
         </AutoScrollButton>
       </Container>
-    </>
+    </>      
   );
 }
 

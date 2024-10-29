@@ -72,6 +72,9 @@ export default function EmailForm() {
     };
     return (
       <Container>
+        <ImageSection>
+          <Image src="/logo.png" alt="Contact Us" onClick={() => navigate('/')}/>
+        </ImageSection>
         <TextSection>
           <Headline>Send Us a Message</Headline>
           <SubText>
@@ -125,17 +128,14 @@ export default function EmailForm() {
             
             <SendButton type="submit">Send Mail</SendButton>
           </Form>
-        </TextSection>
-        <ImageSection>
-          <Image src="/logo.png" alt="Contact Us" onClick={() => navigate('/')}/>
-        </ImageSection>
+        </TextSection>        
       </Container>
     );
   }
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   height: 100vh;
   padding: 0 5vw;
@@ -200,8 +200,13 @@ const SendButton = styled.button`
 `;
 
 const ImageSection = styled.div`
-  max-width:80%;
-  margin: 0 auto;
+  width:50px;
+  display:flex;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
 `;
 
 const Image = styled.img`

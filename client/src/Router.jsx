@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef} from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./components/Home";
 import EmailBox from "./components/EmailBox";
@@ -10,11 +10,18 @@ import OLED from "./components/Company/Oled";
 import ECALL from "./components/Company/E-CALL";
 import TECU from "./components/Company/T-ECU";
 import PrivacyPolicyForm from "./components/IndivisualPolicy";
-
+import { isMobile as Mobile } from "react-device-detect";
+import MobileHome from "./components/MobileHome";
 export default function Router() {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const mobileCheck = /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(userAgent);
+        setIsMobile(mobileCheck);
+      }, []);
     return(
         <Routes>
-            <Route path="/" element={<Home key="home"/>} />
+            <Route path="/" element={isMobile? <MobileHome key="home"/> : <Home key="home"/>}/>
             <Route path='/mail' element={<EmailBox key='email'/>}/>
             <Route path='/company' element={<Company key='company'/>}>
                 <Route path='tecu' element={<TECU/>}/>

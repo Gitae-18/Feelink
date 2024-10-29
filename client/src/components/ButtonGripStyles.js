@@ -69,7 +69,7 @@ const OutlineButton = styled.button`
 const SolidButton = styled.button`
   background: #4a5568; /* Darker Blue for the solid button */
   color: white;
-  padding: 0.5em 1em;
+  padding: 0.5em 1.2em;
   font-size: 1em;
   border: none;
   cursor: pointer;
