@@ -112,7 +112,7 @@ export default function Home() {
     autoScrollRef.current = setInterval(() => {
       handleNextScroll();
       const scrollX = window.scrollX;
-      if (scrollX >= window.innerWidth * 3) {
+      if (scrollX >= window.innerWidth * 4.5) {
         // 스크롤이 마지막 섹션에 도달하면 첫 섹션으로 돌아가게 함
         window.scrollTo({ left: 0, behavior: 'smooth' });
       }
@@ -176,7 +176,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
-  width: 700vw; /* 각 섹션이 화면에 맞게 100vw씩 구성 */
+  width: 600vw; /* 각 섹션이 화면에 맞게 100vw씩 구성 */
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
