@@ -208,7 +208,7 @@ const Section = styled.div`
 
 const ArrowButtonRight = styled.button`
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   right: 20px;
   width: 45px;
   height: 45px;
@@ -263,7 +263,7 @@ const ArrowButtonLeft = styled(ArrowButtonRight)`
 const AutoScrollButton = styled.button`
   position: fixed;
   right: ${(props) => (props.isAtFooter ? '20px' : '80px')};
-  bottom: 20px;
+  bottom: 10px;
   width: 45px;
   height: 45px;
   background-color: #666;

@@ -165,5 +165,5 @@ height:auto;
 const Image = styled.img`
 width: 12em;
 object-fit: fill;
-height:8em;
+height:12em;
 `;
